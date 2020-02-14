@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    Value: {{form.value | json}}
+    Error: {{form.controls.todo?.errors|json}}
+    <hr>
+    <div class="col-md-8 offset-md-2">
+        <input type="text" class="form-control" formControlName="todo" (change)="onChange()">
+        <div class="col alert alert-danger" role="alert"
+            *ngIf="form.get('todo')?.errors?.required && form.get('todo')?.touched">
+            Không được để trống
+        </div>
+        <div class="col alert alert-danger" role="alert" *ngIf="form.get('todo')?.errors?.minlength">
+            Phải nhập vào trên 5 kí tự
+        </div>
+        <ul>
+            <li (click)="toggleTodo(i)" *ngFor="let todo of todos; index as i" [class.complete]="todo.complete">
+                {{todo.content}}</li>
+        </ul>
+    </div>
+</form>

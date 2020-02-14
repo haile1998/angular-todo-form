@@ -1,0 +1,9 @@
+
+.complete {
+    text-decoration: line-through;
+}
+
+ul li {
+    list-style-type: georgian;
+    cursor: pointer;
+}
